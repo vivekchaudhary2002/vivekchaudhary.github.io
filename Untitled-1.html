@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday My Love</title>
+    <style>
+        body {
+            margin: 0; background: #0b0104; color: white;
+            font-family: 'Poppins', sans-serif; overflow-x: hidden; text-align: center;
+        }
+
+        /* Floating Hearts Animation */
+        .heart { position: fixed; color: #ff4d6d; font-size: 20px; z-index: 50; pointer-events: none; animation: fall linear forwards; }
+        @keyframes fall { to { transform: translateY(100vh) rotate(360deg); opacity: 0; } }
+
+        .header-text { margin-top: 50px; font-size: 2rem; color: #ff4d6d; text-shadow: 0 0 15px #ff4d6d; animation: pulse 2s infinite; }
+        @keyframes pulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.05); } }
+
+        /* 3D Carousel Container */
+        .carousel-container {
+            margin: 100px auto; width: 150px; height: 200px;
+            position: relative; perspective: 1000px;
+        }
+
+        .carousel {
+            width: 100%; height: 100%; position: absolute;
+            transform-style: preserve-3d;
+            animation: rotateGallery 15s infinite linear;
+        }
+
+        .carousel div {
+            position: absolute; width: 150px; height: 200px;
+            left: 0; top: 0; border: 3px solid #ff4d6d; border-radius: 10px;
+            overflow: hidden; box-shadow: 0 0 20px rgba(255, 77, 109, 0.5);
+        }
+
+        .carousel img { width: 100%; height: 100%; object-fit: cover; }
+
+        /* Positioning 6 photos in 3D space */
+        .carousel div:nth-child(1) { transform: rotateY(0deg) translateZ(250px); }
+        .carousel div:nth-child(2) { transform: rotateY(60deg) translateZ(250px); }
+        .carousel div:nth-child(3) { transform: rotateY(120deg) translateZ(250px); }
+        .carousel div:nth-child(4) { transform: rotateY(180deg) translateZ(250px); }
+        .carousel div:nth-child(5) { transform: rotateY(240deg) translateZ(250px); }
+        .carousel div:nth-child(6) { transform: rotateY(300deg) translateZ(250px); }
+
+        @keyframes rotateGallery {
+            from { transform: rotateY(0deg); }
+            to { transform: rotateY(360deg); }
+        }
+
+        .romantic-lines { padding: 20px; font-style: italic; color: #ffb3c1; font-size: 1.2rem; }
+
+        /* Spotify Player Box */
+        .music-player { margin: 40px auto; width: 90%; max-width: 350px; border-radius: 12px; overflow: hidden; }
+    </style>
+</head>
+<body>
+
+    <div class="header-text">Happy Birthday, My Queen! ❤️</div>
+
+    <div class="carousel-container">
+        <div class="carousel">
+            <div><img src="pexels-mart-production-7230182.jpg" alt="1"></div>
+            <div><img src="SAUDI ARAMCO - REFINERY PROCESS SAFETY - POSTER DESIGN - Rana Jamal.jpg" alt="2"></div>
+            <div><img src="technician-examining-computer-motherboard-with-digital-multimeter.jpg" alt="3"></div>
+            <div><img src="view-laboratory-equipment-neon-lights (2).jpg" alt="4"></div>
+            <div><img src="SAUDI ARAMCO - REFINERY PROCESS SAFETY - POSTER DESIGN - Rana Jamal.jpg" alt="5"></div>
+            <div><img src="view-professional-handshake-business-people.jpg" alt="6"></div>
+        </div>
+    </div>
+
+    <div class="romantic-lines">
+        "Tum mere liye wo tohfa ho, jo Khuda ne mujhe mangne se pehle diya..." ✨
+    </div>
+
+    <div class="music-player">
+        <iframe src="https://open.spotify.com/embed/track/25Y9v2G3495J9e4776u937" width="100%" height="80" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+    </div>
+
+    <script>
+        // Falling Hearts logic
+        function createHeart() {
+            const heart = document.createElement('div');
+            heart.classList.add('heart');
+            heart.innerHTML = '❤️';
+            heart.style.left = Math.random() * 100 + 'vw';
+            heart.style.animationDuration = Math.random() * 2 + 3 + 's';
+            document.body.appendChild(heart);
+            setTimeout(() => { heart.remove(); }, 5000);
+        }
+        setInterval(createHeart, 300);
+    </script>
+</body>
+</html>
